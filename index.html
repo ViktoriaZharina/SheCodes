@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Select</title>
+    <style>
+      select {
+        margin: 30px 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <label for="fruits">What is your favorite fruit?</label>
+      <select name="" id="fruits">
+        <option value="">Select a fruit</option>
+        <option value="strawberry">🍓Strawberry</option>
+        <option value="apple">🍎Apple</option>
+        <option value="orange">🍊Orange</option>
+        <option value="banana">🍌Banana</option>
+        <option value="peach">🍑Peach</option>
+      </select>
+    </form>
+    <label for="colors">Choose your favorite primary color? </label>
+    <select name="" id="colors">
+      <option value="">Choose a color</option>
+      <option value="blue">Blue</option>
+      <option value="red">Red</option>
+      <option value="yellow">Yellow</option>
+    </select>
+    <script>
+      function showHeart(event) {
+        if (event.target.value.length > 0) {
+          if (event.target.value === "blue") {
+            alert("💙");
+          }
+          if (event.target.value === "red") {
+            alert("❤️");
+          }
+          if (event.target.value === "yellow") {
+            alert("💛");
+          }
+        }
+      }
+      let colors = document.querySelector("#colors");
+      colors.addEventListener("change", showHeart);
+    </script>
+  </body>
+</html>
