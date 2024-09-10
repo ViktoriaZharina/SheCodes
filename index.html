@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.45/moment-timezone-with-data-1970-2030.min.js"></script>
     <title>Select</title>
     <style>
       select {
@@ -11,40 +13,26 @@
     </style>
   </head>
   <body>
-    <form>
-      <label for="fruits">What is your favorite fruit?</label>
-      <select name="" id="fruits">
-        <option value="">Select a fruit</option>
-        <option value="strawberry">🍓Strawberry</option>
-        <option value="apple">🍎Apple</option>
-        <option value="orange">🍊Orange</option>
-        <option value="banana">🍌Banana</option>
-        <option value="peach">🍑Peach</option>
-      </select>
-    </form>
-    <label for="colors">Choose your favorite primary color? </label>
-    <select name="" id="colors">
-      <option value="">Choose a color</option>
-      <option value="blue">Blue</option>
-      <option value="red">Red</option>
-      <option value="yellow">Yellow</option>
+    <label for="colors">Choose country </label>
+    <select name="" id="city">
+      <option value="">Choose city</option>
+      <option value="paris">Paris</option>
+      <option value="tokyo">Tokyo</option>
+      <option value="sydney">Sydney</option>
     </select>
     <script>
-      function showHeart(event) {
+      function showDate(event) {
         if (event.target.value.length > 0) {
-          if (event.target.value === "blue") {
-            alert("💙");
-          }
-          if (event.target.value === "red") {
-            alert("❤️");
-          }
-          if (event.target.value === "yellow") {
-            alert("💛");
-          }
+          let currentTime = moment()
+            .tz(event.target.value)
+            .format("dddd, MMMM D, YYYY h:mm A");
+
+          alert(`It is ${currentTime} in ${event.target.value}`);
         }
       }
-      let colors = document.querySelector("#colors");
-      colors.addEventListener("change", showHeart);
+
+      let selectElement = document.querySelector("#city");
+      selectElement.addEventListener("change", showDate);
     </script>
   </body>
 </html>
